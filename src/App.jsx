@@ -9,7 +9,7 @@ function App() {
           <div className="w-screen h-screen flex flex-col">
               <Header/>
 
-              <main className='mt-24 w-full p-8'>
+              <main className='mt-16 md:mt-24 w-full p-3 md:p-6'>
                   <Routes>
                       <Route path='/' element={<MainContainer/>}/>
                       <Route path='/create-item' element={<CreateContainer/>}/>

@@ -88,6 +88,13 @@ const Header = () => {
             </nav>
 
             <nav className='flex md:hidden w-full h-full justify-between'>
+              <div className='relative flex items-center justify-center'>
+                <IoCart className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
+                <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
+                  <p className='text-xs text-white font-medium'>2</p>
+                </div>
+              </div>
+
               <Link to={'/'} className='flex items-center gap-2'>
                 <img src={logo} alt={'logo'} className='w-6 object-cover'/>
                 <p className='text-headingColor text-md font-bold'>Chicken</p>
