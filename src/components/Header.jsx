@@ -35,7 +35,7 @@ const Header = () => {
     }
 
     return (
-        <header className='fixed z-50 w-screen bg-slate-300 p-3 md:p-6'>
+        <header className='fixed z-50 w-screen h-[60px] bg-primary p-3 md:p-6'>
 
             <nav className='hidden md:flex w-full h-full items-center gap-5'>
 
