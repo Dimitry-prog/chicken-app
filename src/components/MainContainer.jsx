@@ -1,10 +1,11 @@
 import React from 'react';
-import {HomeContainer} from "./index";
+import {CreateContainer, HomeContainer} from "./index";
 
 const MainContainer = () => {
     return (
         <>
           <HomeContainer/>
+          <CreateContainer/>
         </>
     );
 };

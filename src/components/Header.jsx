@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import logo from '../images/logo.png';
 import userAvatar from '../images/avatar.png';
 import {initMenuLinks} from "../initData/initMenuLinks";
@@ -14,11 +14,11 @@ const Header = () => {
     const {user} = useSelector(state => state.user);
     const dispatch = useDispatch();
     const [isMenu, setIsMenu] = useState(false);
+    const firebaseAuth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
     const handleLogin = async () => {
         if (!user) {
-          const firebaseAuth = getAuth(app);
-          const provider = new GoogleAuthProvider();
           const response = await signInWithPopup(firebaseAuth, provider);
           const {providerData, refreshToken} = response.user
           dispatch(setUser(providerData[0]));
@@ -33,6 +33,27 @@ const Header = () => {
       localStorage.removeItem('user');
       dispatch(setUser(null));
     }
+
+    useEffect(() => {
+      const closeMenuByEscape = (e) => {
+        if(e.key === 'Escape') {
+          setIsMenu(false);
+        }
+      }
+
+      const closeMenu = (e) => {
+          setIsMenu(false);
+      }
+
+      if(isMenu) {
+        document.addEventListener('keydown', closeMenuByEscape);
+        document.addEventListener('mousedown', closeMenu);
+        return () => {
+          document.removeEventListener('keydown', closeMenuByEscape);
+          document.removeEventListener('mousedown', closeMenu);
+        }
+      }
+    }, [isMenu]);
 
     return (
         <header className='fixed z-50 w-screen h-[60px] bg-primary p-3 md:p-6'>
@@ -79,7 +100,7 @@ const Header = () => {
                     <button
                       onClick={handleLogout}
                       className="flex justify-center items-center rounded text-textColor bg-gray-300 hover:bg-stone-200 hover:text-headingColor transition-all m-2 p-2">
-                      <Link to="/create-item" className="flex items-center gap-2">Logout <IoLogOutOutline/> </Link>
+                      <Link to="/" className="flex items-center gap-2">Logout <IoLogOutOutline/> </Link>
                     </button>
                 </motion.ul>
                 )}
@@ -116,7 +137,7 @@ const Header = () => {
                         <Link to="/create-item" className="flex items-center gap-2">Create Item <IoAdd/> </Link>
                       </li>
                     )}
-                    <ul className='list-none flex flex-col gap-1'>
+                    <ul className="list-none flex flex-col gap-1">
                       {initMenuLinks.map(link => (
                         <li key={link.id} className='text-textColor hover:bg-stone-200 hover:text-headingColor transition-all py-2 px-4'>
                           <Link to={link.link}  className="flex items-center gap-2">{link.name}</Link>
