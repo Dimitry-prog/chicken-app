@@ -41,16 +41,16 @@ const Header = () => {
         }
       }
 
-      const closeMenu = (e) => {
-          setIsMenu(false);
-      }
+      // const closeMenu = (e) => {
+      //     setIsMenu(false);
+      // }
 
       if(isMenu) {
         document.addEventListener('keydown', closeMenuByEscape);
-        document.addEventListener('mousedown', closeMenu);
+        // document.addEventListener('mousedown', closeMenu);
         return () => {
           document.removeEventListener('keydown', closeMenuByEscape);
-          document.removeEventListener('mousedown', closeMenu);
+          // document.removeEventListener('mousedown', closeMenu);
         }
       }
     }, [isMenu]);

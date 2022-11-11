@@ -5,7 +5,6 @@ const MainContainer = () => {
     return (
         <>
           <HomeContainer/>
-          <CreateContainer/>
         </>
     );
 };
