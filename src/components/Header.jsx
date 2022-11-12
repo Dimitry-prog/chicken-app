@@ -62,7 +62,7 @@ const Header = () => {
 
                 <Link to={'/'} className='flex items-center gap-2'>
                     <img src={logo} alt={'logo'} className='w-8 object-cover'/>
-                    <p className='text-headingColor text-xl font-bold'>Chicken</p>
+                    <p className='text-headingColor text-xl font-bold'>ChickenOK</p>
                 </Link>
 
                 <ul className='list-none flex items-center gap-8 ml-auto'>
@@ -118,7 +118,7 @@ const Header = () => {
 
               <Link to={'/'} className='flex items-center gap-2'>
                 <img src={logo} alt={'logo'} className='w-6 object-cover'/>
-                <p className='text-headingColor text-md font-bold'>Chicken</p>
+                <p className='text-headingColor text-md font-bold'>ChickenOK</p>
               </Link>
 
               <div onClick={handleLogin} className="cursor-pointer shadow-2xl">

@@ -6,6 +6,7 @@ import {categories} from "../initData/initCategories";
 import {Loader} from "./index";
 import {ref, uploadBytesResumable, getDownloadURL, deleteObject} from 'firebase/storage';
 import {storage} from "../firebase.config";
+import {firebaseSaveItems} from "../utils/firebaseSaveItems";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -67,12 +68,49 @@ const CreateContainer = () => {
         setFields(false);
         setIsLoading(false);
       }, 4000);
-    })
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const data = {
+        id: `${Date.now()}`,
+        title: values.title,
+        imageURL: imageAsset,
+        category: category,
+        calories: values.calories,
+        price: values.price,
+        quantity: 1
+      }
+      firebaseSaveItems(data);
+      setIsLoading(false);
+      setFields(true);
+      setMsg('Product saved successfully');
+      setAlertStatus('success');
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+      resetForm();
+
+    } catch (error) {
+      console.log(error);
+      setFields(true);
+      setMsg('Error while uploading, please try again');
+      setAlertStatus('danger');
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+    }
   }
 
   return (
     <section className="flex items-center justify-center min-h-screen bg-primary">
       <form
+        onSubmit={handleSubmit}
         className="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col gap-4 items-center justify-center form">
         {fields && (
           <motion.p
@@ -104,7 +142,6 @@ const CreateContainer = () => {
           >
             <option
               value="other"
-              disabled
               className="text-gray-400 bg-primary"
             >
               Select Category
