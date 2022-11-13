@@ -27,8 +27,8 @@ const HomeContainer = () => {
         <div className='absolute left-0 top-16 w-full md:w-[340px] md:left-[3%] lg:left-[25%] md:top-[30%] flex flex-wrap gap-y-12 gap-x-2 justify-evenly'>
           {initHomeData.map(elem => (
             <div key={elem.id} className='bg-cardOverlay backdrop-blur-md p-2 rounded-xl flex flex-col gap-1 items-center justify-center shadow-xl'>
-              <img src={elem.image} alt="iceCream" className='w-[100px] sm:w-[150px] -mt-[50px]'/>
-              <p className='text-textColor font-semibold text-base sm:text-lg'> {elem.name}</p>
+              <img src={elem.image} alt={elem.name} className='w-[100px] sm:w-[150px] -mt-[50px]'/>
+              <h3 className='text-textColor font-semibold text-base sm:text-lg'> {elem.name}</h3>
               <p className='text-sm text-lightestGray font-semibold'> {elem.category}</p>
               <p className='text-sm text-textColor font-semibold'> <span className='text-xs text-red-500'>$</span> {elem.price} </p>
             </div>

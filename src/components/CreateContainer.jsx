@@ -103,7 +103,7 @@ const CreateContainer = () => {
       }, 4000);
       resetForm();
       fetchProducts();
-
+      setImageAsset(null);
     } catch (error) {
       console.log(error);
       setFields(true);
