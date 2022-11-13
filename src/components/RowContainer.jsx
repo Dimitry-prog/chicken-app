@@ -15,7 +15,7 @@ const RowContainer = ({products}) => {
 
           <motion.button
             whileTap={{scale: 0.6}}
-            className='absolute top-0 flex items-center justify-center hover:shadow-lg transition-all'>
+            className='absolute top-6 flex items-center justify-center hover:shadow-lg transition-all'>
             <IoCart className='w-8 h-8 p-1 text-white bg-orange-500 rounded-full hover:bg-orange-100 hover:text-orange-500 transition-all'/>
           </motion.button>
 
