@@ -7,6 +7,9 @@ import {Loader} from "./index";
 import {ref, uploadBytesResumable, getDownloadURL, deleteObject} from 'firebase/storage';
 import {storage} from "../firebase.config";
 import {firebaseSaveItems} from "../utils/firebaseSaveItems";
+import {useDispatch} from "react-redux";
+import {firebaseFetchProducts} from "../utils/firebaseFetchProducts";
+import {setProducts} from "../store/productsSlice";
 
 const CreateContainer = () => {
   const [title, setTitle] = useState("");
@@ -19,6 +22,11 @@ const CreateContainer = () => {
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const {values, setValues, errors, isValid, handleChange, resetForm} = useFormValidation();
+  const dispatch = useDispatch();
+
+  const fetchProducts = async () => {
+    await firebaseFetchProducts().then(res => dispatch(setProducts(res)));
+  }
 
   const handleUploadImage = (e) => {
     setIsLoading(true);
@@ -94,6 +102,7 @@ const CreateContainer = () => {
         setIsLoading(false);
       }, 4000);
       resetForm();
+      fetchProducts();
 
     } catch (error) {
       console.log(error);

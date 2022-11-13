@@ -1,0 +1,7 @@
+import {getDocs, query, collection, orderBy} from 'firebase/firestore';
+import {firestore} from "../firebase.config";
+
+export const firebaseFetchProducts = async () => {
+  const items = await getDocs(query(collection(firestore, 'foodItems'), orderBy('id', 'desc')));
+  return items.docs.map(doc => doc.data());
+}
