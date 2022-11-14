@@ -9,6 +9,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {app} from '../firebase.config';
 import {useDispatch, useSelector} from "react-redux";
 import {setUser} from "../store/userSlice";
+import {setIsShowCart} from "../store/cartSlice";
 
 const Header = () => {
     const {user} = useSelector(state => state.user);
@@ -33,6 +34,10 @@ const Header = () => {
       localStorage.removeItem('user');
       dispatch(setUser(null));
     }
+
+  const showCart = () => {
+    dispatch(setIsShowCart());
+  }
 
     useEffect(() => {
       const closeMenuByEscape = (e) => {
@@ -73,8 +78,11 @@ const Header = () => {
                     ))}
                 </ul>
 
-                <div className='relative flex items-center justify-center'>
-                    <IoCart className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
+                <div
+                  onClick={showCart}
+                  className='relative flex items-center justify-center'>
+                    <IoCart
+                      className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
                     <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
                         <p className='text-xs text-white font-medium'>2</p>
                     </div>
@@ -109,7 +117,9 @@ const Header = () => {
             </nav>
 
             <nav className='flex md:hidden w-full h-full justify-between'>
-              <div className='relative flex items-center justify-center'>
+              <div
+                onClick={showCart}
+                className='relative flex items-center justify-center'>
                 <IoCart className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
                 <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
                   <p className='text-xs text-white font-medium'>2</p>

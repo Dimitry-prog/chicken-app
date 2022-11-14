@@ -2,12 +2,12 @@ import React, {useRef} from "react";
 import {CartContainer, HomeContainer, MenuContainer, RowContainer} from "./index";
 import {motion} from 'framer-motion';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ContainerWithRef from "./ContainerWithRef";
 
 const MainContainer = () => {
   const {products} = useSelector(state => state.products);
-  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
   const rowContainerRef = useRef(null);
 
   const scroll = (scrollOffset) => {
@@ -56,7 +56,8 @@ const MainContainer = () => {
       </section>
 
       <MenuContainer/>
-      <CartContainer/>
+
+      {cart.isShowCart && <CartContainer/>}
     </>
   );
 };
