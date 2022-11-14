@@ -22,7 +22,7 @@ function App() {
           <div className="w-screen h-screen flex flex-col">
               <Header/>
 
-              <main className=''>
+              <main className='bg-primary p-3 md:p-6 flex flex-col gap-4 md:gap-8'>
                   <Routes>
                       <Route path='/' element={<MainContainer/>}/>
                       <Route path='/create-item' element={<CreateContainer/>}/>

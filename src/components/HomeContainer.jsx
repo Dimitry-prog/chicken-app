@@ -5,7 +5,7 @@ import {initHomeData} from "../initData/initHomeData";
 
 const HomeContainer = () => {
   return (
-    <section className='grid grid-cols-1 gap-x-2 md:grid-cols-2 h-[calc(100%-10px)] bg-primary p-3 md:p-6 mt-[60px]' id='home'>
+    <section className='grid grid-cols-1 gap-4 md:grid-cols-2 mt-[60px]' id='home'>
       <div className='flex-1 flex flex-col items-start gap-5 mt-[20px] md:mt-[60px]'>
         <div className='flex items-center gap-2 bg-orange-100 px-4 py-1 rounded-md'>
           <p className='text-base text-orange-500 font-semibold'>Fast Delivery</p>

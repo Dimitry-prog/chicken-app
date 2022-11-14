@@ -18,7 +18,7 @@ const MainContainer = () => {
     <>
       <HomeContainer/>
 
-      <section className="w-full p-3 md:p-6">
+      <section id='fruits'>
         <div className="w-full flex items-center justify-between">
           <h2 className="text-2xl font-semibold capitalize relative
               before:absolute before:rounded-lg before:content before:w-[90px] before:h-1
@@ -39,7 +39,7 @@ const MainContainer = () => {
             <motion.button
               whileTap={{scale: 0.6}}
               onClick={() => scroll(250)}
-              className="flex items-center justify-center hover:shadow-lg duration-300 transition-all cursor-pointer"
+              className="flex items-center justify-center hover:shadow-lg transition-all cursor-pointer"
             >
               <MdChevronRight
                 className="w-8 h-8 text-lg text-white bg-orange-500 rounded-lg hover:bg-orange-100 hover:text-orange-500 transition-all"/>

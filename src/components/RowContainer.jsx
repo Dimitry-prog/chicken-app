@@ -11,7 +11,7 @@ const RowContainer = ({products}) => {
       {fruits.map(fruit => (
         <div
           key={fruit.id}
-          className='flex flex-col justify-end min-w-[296px] my-6 md:my-12 p-2 bg-cardOverlay shadow-md backdrop-blur-lg relative hover:drop-shadow-lg transition-all'>
+          className='flex flex-col justify-end min-w-[296px] my-6 md:my-12 p-2 rounded-lg bg-cardOverlay shadow-md backdrop-blur-lg relative hover:drop-shadow-lg transition-all'>
 
           <motion.button
             whileTap={{scale: 0.6}}
