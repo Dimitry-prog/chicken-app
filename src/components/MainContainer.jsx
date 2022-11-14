@@ -50,7 +50,7 @@ const MainContainer = () => {
         <ContainerWithRef
           ref={rowContainerRef}
           className={`w-full flex flex-wrap gap-2 my-12 md:flex-nowrap md:overflow-x-scroll md:scrollbar-none scroll-smooth`}>
-          <RowContainer products={products}/>
+          <RowContainer products={products?.filter(fruit => fruit.category === 'fruits')}/>
         </ContainerWithRef>
 
       </section>

@@ -2,9 +2,9 @@ import React from "react";
 
 const ContainerWithRef = React.forwardRef((props, ref) => {
   return (
-    <div ref={ref} {...props}>
+    <ul ref={ref} {...props}>
       {props.children}
-    </div>
+    </ul>
   )
 });
 
