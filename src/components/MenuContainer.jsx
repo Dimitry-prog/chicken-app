@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {IoFastFood} from "react-icons/io5";
 import {categories} from "../initData/initCategories";
 import {motion} from 'framer-motion';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {RowContainer} from "./index";
 
 const MenuContainer = () => {
   const [filter, setFilter] = useState('chicken');
   const {products} = useSelector(state => state.products);
-  const dispatch = useDispatch();
 
   return (
     <section id='menu'>

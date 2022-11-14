@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import {HomeContainer, MenuContainer, RowContainer} from "./index";
+import {CartContainer, HomeContainer, MenuContainer, RowContainer} from "./index";
 import {motion} from 'framer-motion';
 import {MdChevronLeft, MdChevronRight} from 'react-icons/md';
 import {useDispatch, useSelector} from "react-redux";
@@ -56,6 +56,7 @@ const MainContainer = () => {
       </section>
 
       <MenuContainer/>
+      <CartContainer/>
     </>
   );
 };
