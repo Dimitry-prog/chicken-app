@@ -6,7 +6,7 @@
       "React", "Redux", "Firebase", "Tailwind" , "API" 
     ],
 
-[link to project page](https://dimitry-prog.github.io/).
+[link to project page](https://dimitry-prog.github.io/chicken-app/).
 
 ## TODO
 
