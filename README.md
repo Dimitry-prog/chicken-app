@@ -6,6 +6,8 @@
       "React", "Redux", "Firebase", "Tailwind" , "API" 
     ],
 
+[link to project page](https://dimitry-prog.github.io/).
+
 ## TODO
 
 * Refactoring to TypeScript
