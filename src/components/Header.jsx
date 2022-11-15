@@ -101,7 +101,7 @@ const Header = () => {
                     className="list-none bg-primary shadow-xl rounded-md flex flex-col gap-1 absolute right-1"
                   >
 
-                  {user.email === "kfifa3@gmail.com" && (
+                  {user.email && (
                     <li className="text-textColor hover:bg-stone-200 hover:text-headingColor transition-all py-2 px-4">
                       <Link to="/create-item" className="flex items-center gap-2">Create Item <IoAdd/> </Link>
                     </li>
@@ -145,7 +145,7 @@ const Header = () => {
                     className="list-none bg-primary shadow-xl rounded-md flex flex-col gap-1 absolute right-1 top-12"
                   >
 
-                    {user.email === "kfifa3@gmail.com" && (
+                    {user.email && (
                       <li className="text-textColor hover:bg-stone-200 hover:text-headingColor transition-all py-2 px-4">
                         <Link to="/create-item" className="flex items-center gap-2">Create Item <IoAdd/> </Link>
                       </li>
