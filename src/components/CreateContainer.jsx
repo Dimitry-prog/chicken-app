@@ -12,9 +12,6 @@ import {firebaseFetchProducts} from "../utils/firebaseFetchProducts";
 import {setProducts} from "../store/productsSlice";
 
 const CreateContainer = () => {
-  const [title, setTitle] = useState("");
-  const [calories, setCalories] = useState("");
-  const [price, setPrice] = useState("");
   const [category, setCategory] = useState(null);
   const [fields, setFields] = useState(false);
   const [alertStatus, setAlertStatus] = useState("danger");

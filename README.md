@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Chicken app
+
+    description: 'Food delivery project',
+    functionality: 'After registration in the menu, you will be able to go to the page for adding a new product. You can create a product through the form, then select it in the corresponding menu category.',
+    stack: [
+      "React", "Redux", "Firebase", "Tailwind" , "API" 
+    ],
+
+## TODO
+
+* Refactoring to TypeScript
+* Refactoring form validation
+* Add dishes to each category
+* Add routes for different peoples role
+* Add separate pages for menus, services, about us
+* Add Api for payment system
+
+
+
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
