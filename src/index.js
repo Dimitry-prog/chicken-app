@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
+      <BrowserRouter basename={'/chicken-app/'}>
         <Provider store={store}>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
+          <App/>
         </Provider>
+      </BrowserRouter>
     </React.StrictMode>
 );
 
