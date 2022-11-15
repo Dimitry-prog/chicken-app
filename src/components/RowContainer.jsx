@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {IoCart} from "react-icons/io5";
 import {motion} from 'framer-motion';
 import notFound from '../images/NotFound.svg';
+import {useDispatch, useSelector} from "react-redux";
+import {addItemToCart} from "../store/cartSlice";
 
 const RowContainer = ({products}) => {
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -16,12 +19,13 @@ const RowContainer = ({products}) => {
 
               <motion.button
                 whileTap={{scale: 0.6}}
+                onClick={() => dispatch(addItemToCart(elem))}
                 className='absolute top-6 flex items-center justify-center hover:shadow-lg transition-all'>
                 <IoCart className='w-8 h-8 p-1 text-white bg-orange-500 rounded-full hover:bg-orange-100 hover:text-orange-500 transition-all'/>
               </motion.button>
 
               <div className='w-full flex flex-col gap-2 items-end'>
-                <img src={elem.imageURL} alt={elem.title} className='h-28 md:h-40 -mt-[50px]'/>
+                <img src={elem.imageURL} alt={elem.title} className='h-28 md:h-40 w-28 md:w-40 object-contain -mt-[50px]'/>
                 <h3 className='text-textColor font-semibold text-base md:text-lg'>{elem.title}</h3>
                 <p className='text-sm text-gray-500'>{elem.calories} Calories</p>
                 <p className='text-sm text-textColor font-semibold'> <span className='text-xs text-red-500'>$</span> {elem.price}</p>

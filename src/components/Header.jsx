@@ -13,6 +13,7 @@ import {setIsShowCart} from "../store/cartSlice";
 
 const Header = () => {
     const {user} = useSelector(state => state.user);
+    const cart = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const [isMenu, setIsMenu] = useState(false);
     const firebaseAuth = getAuth(app);
@@ -83,9 +84,10 @@ const Header = () => {
                   className='relative flex items-center justify-center'>
                     <IoCart
                       className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
-                    <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
-                        <p className='text-xs text-white font-medium'>2</p>
-                    </div>
+                  {cart.cartItems.length > 0 && <div
+                    className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center">
+                    <p className="text-xs text-white font-medium">{cart.cartItems.length}</p>
+                  </div>}
                 </div>
 
               <div onClick={handleLogin} className="cursor-pointer shadow-2xl">
@@ -121,9 +123,10 @@ const Header = () => {
                 onClick={showCart}
                 className='relative flex items-center justify-center'>
                 <IoCart className='w-6 h-6 text-textColor hover:text-headingColor transition-all cursor-pointer'/>
-                <div className='absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center'>
-                  <p className='text-xs text-white font-medium'>2</p>
-                </div>
+                {cart.cartItems.length > 0 && <div
+                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-cartNumBg flex items-center justify-center">
+                  <p className="text-xs text-white font-medium">{cart.cartItems.length}</p>
+                </div>}
               </div>
 
               <Link to={'/'} className='flex items-center gap-2'>
