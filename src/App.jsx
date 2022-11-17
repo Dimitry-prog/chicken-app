@@ -20,7 +20,7 @@ function App() {
 
   return (
       <AnimatePresence mode='wait'>
-          <div className={`w-screen h-screen flex flex-col ${cart.isShowCart ? 'overflow-hidden' : ''}`}>
+          <div className={`h-screen flex flex-col ${cart.isShowCart ? 'overflow-hidden' : ''}`}>
               <Header/>
 
               <main className='bg-primary p-3 md:p-6 flex flex-col gap-4 md:gap-8'>
